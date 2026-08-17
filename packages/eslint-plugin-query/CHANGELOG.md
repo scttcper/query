@@ -1,5 +1,13 @@
 # @tanstack/eslint-plugin-query
 
+## 5.102.0
+
+### Patch Changes
+
+- [#11212](https://github.com/TanStack/query/pull/11212) [`279bb55`](https://github.com/TanStack/query/commit/279bb5508b81ce0d88b8f0f72441d96abf7ca03c) - TypeScript 7 compatibility
+
+- [#11188](https://github.com/TanStack/query/pull/11188) [`3bc8edf`](https://github.com/TanStack/query/commit/3bc8edfa0199e6467458084e8802a99bce11b958) - Fix false-positive warnings in `no-unstable-deps` rule caused by `Object.prototype` property lookups (`toString`, `valueOf`, etc.).
+
 ## 5.101.4
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # @tanstack/query-core
 
+## 5.102.0
+
+### Minor Changes
+
+- [#10658](https://github.com/TanStack/query/pull/10658) [`c6fc17c`](https://github.com/TanStack/query/commit/c6fc17cfad6e452261c585fabfb8c210e60531ed) - add query and infiniteQuery methods, deprecate old imperative methods
+
+### Patch Changes
+
+- [#11128](https://github.com/TanStack/query/pull/11128) [`5448063`](https://github.com/TanStack/query/commit/5448063f828d2270dccd41ae375e1afde35e91f2) - Ignore a retained `pendingThenable` settlement callback invoked after the thenable has settled. Holding a reference to `resolve`/`reject` and calling it later used to overwrite `status` and `reason` even though the underlying promise had already settled, leaving the thenable advertising a state that disagreed with its value.
+
+- [#11163](https://github.com/TanStack/query/pull/11163) [`4a9bef6`](https://github.com/TanStack/query/commit/4a9bef6cf19b1cd6b014032d696129f12a848185) - Release a query's retryer once its fetch settles, so the settled promise no longer keeps that fetch's raw result in memory alongside the structurally shared `state.data` (or after the query is reset or removed).
+
+- [#11036](https://github.com/TanStack/query/pull/11036) [`bef4bc7`](https://github.com/TanStack/query/commit/bef4bc780ce7cca32b7e3dea85f77d92f82a62a2) - Resolve suspense when query data is set programmatically via setQueryData or streamedQuery. Previously, fetchOptimistic returned only the fetch promise, which left the Suspense boundary stuck until the queryFn completed — even when data already existed in the cache. The fix uses Promise.race with a cache subscriber to release suspense as soon as data becomes available.
+
+- [#11211](https://github.com/TanStack/query/pull/11211) [`326aaf1`](https://github.com/TanStack/query/commit/326aaf1333e5d9cbc46569c53f218d31684162d2) - fix: resetQueries now preserves the queries matched before query.reset() changes their state.
+
 ## 5.101.4
 
 ## 5.101.3
